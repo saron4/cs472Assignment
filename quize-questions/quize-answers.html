@@ -1,0 +1,284 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<h3>Lecture Quize Answers</h3>
+<div>
+    <h3>Introduction to Servlets Quiz</h3>
+    <p>
+        1. What is the difference between a web server and a web container?<br><br>
+            A web server can handle a web Http request send by the user and send back the Http Response.
+            A Wb container is that one that interacts with the servlet and it is a part of the web server.
+        it also manages the life cycle of the servlet. <br><br>
+        2. What is a servlet?<br><br>
+            Is a java programming language that response dynamic web pages to the client. .<br><br>
+        3. How do web servers and web containers interact with servlets?<br><br>
+            The request from the client is send to the web server and if the request for the web container the request will be send to the web container.
+            The container will search for the required servlet depending on the request.
+            But if the request is a static page like an image, audio, the web server can directly access the file and sends back to the client. <br><br>
+        4 Who creates request objects?<br><br>
+            The web container creates the request objects and sends to the service method. .<br><br>
+        5. What are the states in the servlet lifecycle?<br><br>
+         The web container maintains the life cycle of a servlet instance. Let's see the life
+        cycle of the servlet:<br><br>
+        • Servlet class is loaded.<br>
+        • Servlet instance is created.<br>
+        • init method is invoked.• service method is invoked.<br>
+        • destroy method is invoked.<br><b<br>
+        Init is called by the web container and it is called the first request is processed. And it is only called once in the servlet life cycle.  <br>
+        public void init(ServletConfig config) throws ServletException<br><br>
+        7. Which of init, service, and doGet should you override?<br><br>
+        Int and service is controlled by the container, so we don’t have to override them but do get we have to override. <br><br>
+        8. In what sense are servlets multi-threaded?<br><br>
+        It means when we send when we send request to a specific servlet from different users,
+        we don’t have to wait for the other user to finish first to get the service but we can handle the requests at the same time. <br><br>
+        9. What are the implications of this for servlet instance variables?<br><br>
+        there is always only one instance of a servlet running, and the multiple simultaneous users means multiple threads.
+        But there is only one instance of the servlet. So, if 4 users have simultaneously the servlet open in their browsers and are using it,
+        that means there are 4 instances of the servlet running and using "this", each instance simply refers to itself. </p>
+</div>
+<div>
+    <h3>State Management Quiz</h3>
+    <p>
+        1. Can post requests be bookmarked? What are the problems?<br><br>
+        No, we can't bookmark post requests the problem is, since it contains the body that contains data's that the user
+        inserts it will be a security issue if we bookmark it.
+        But we can use cookies to store this data's and use them back again later. <br><br>
+        2. What is the purpose of request dispatching?<br><br>
+        We use it to send a request to another resource in the application. For example, another servlet or jsp page. <br><br>
+        3. What is the difference between redirect and request dispatch?
+        Redirect is sending the request to another URL and the user know that it is changed because he/she can see it in the address bar of their browser.
+        But request dispatch is inside the application, so the user doesn’t know anything about this .
+        in general it means redirect allows us to do the client side whereas dispatcher does the server side. <br><br>
+        4. What is an attribute ?<br><br>
+        Is an object that is used to share information in the web application. And let servlets to share information among each other. <br><br>
+        5. What is the difference between attributes and parameters?Ans:-<br><br>
+        Attributes are objects that are attached to various scopes and can be modified, retrieved or removed while parameters are read only. <br><br>
+        6. What are dangers of using attributes?<br><br>
+        • Not thread safe<br>
+        • Nor session attributes<br>
+        • Only request attributes thread safe<br><br>
+        7. What does it mean to say that http is stateless? Give an example of a
+        stateful protocol<br><br>
+        Means once the transaction terminates the connection between the server and the browser ends.
+        Example of Stateful protocol:- FTP , Talent<br><br>
+        8. Give 5 different methods for maintaining state information (count each
+        attribute scope as one method)..<br><br>
+        • request scope: destroyed when servlet finishes processing request<br>
+        • session scope: destroyed when user closes browser<br>
+        • application scope destroyed when Container stopped.<br>
+        • Cookies saved on browser, temporary (deleted when the browser closes)
+        permanent<br>
+        • Hidden fields on a form9. How long does a session last?<br>
+        Ans:- The default values are 1 and 100, so the garbage collector is only started in
+        only 1% of all Session start calls. That means even if the session is already timed
+        out in theory (the session data had been changed more
+        than session.gc_maxlifetime seconds ago), the session data can be used longer
+        than that. Recommend us to implement our own session timeout mechanism.<br><br>
+        10. What is a cookie, and how long does a cookie last?<br><br>
+        Cookies are small piece of data on the client computer that send response from the web server to client.
+        This data is saved by the browser and later back to the server. It lasts as soon as the browser closed. <br><br>
+        11.What is the purpose of URL rewriting?<br><br>
+        As we know that HTTP and Web Server both are stateless, the only way to maintain a session is when some unique information about the session (session id) is passed between server and client in every request and response.so one way to provide unique id in request and response is using URL rewriting.
+        If your browser does not support cookies, URL rewriting provides you with another session tracking alternative. <br><br>
+        12. Why does the request attribute report ‘null’ for the maintaining state
+        demo?<br><br>
+        Ans:- A reasonably likely explanation is that the requests are not in the same session.
+        Maintaining a session requires cooperation from the client, which is not guaranteed to
+        be given. The most common mechanisms for associating requests with sessions are
+        cookies and URL rewriting. If the client refuses cookies and is making its requests to a
+        static URL then every request will likely be in its own session.</p>
+</div>
+
+<div>
+    <h3>JSP Introduction Quiz</h3>
+    <p>
+        1. What is the main value of Java Server Pages?<br><br>
+        JSP technology is used to create web application just like Servlet technology. It can
+        be thought of as an extension to Servlet because it provides more functionality than servlet
+        such as expression language, JSTL, etc. A JSP page consists of HTML tags and JSP tags. The
+        JSP pages are easier to maintain than Servlet because we can separate designing and
+        development. It provides some additional features such as Expression Language, Custom
+        Tags, etc.<br><br>
+        2.How are JSP pages related to servlets?<br><br>
+        JSP technology is used to create web application just like Servlet technology.
+        It can be thought of as an extension to Servlet because it provides more functionality
+        than servlet such as expression language, JSTL, etc.<br><br>
+        3.How are JSP pages related to HTML?<br>
+        • A JSP page consists of HTML tags and JSP tags while HTML can only have
+        html tags.<br>
+        • A JSP page can generate & contain dynamic information while regular
+        HTML cannot.<br><br>
+        4. Give an example of a JSP scriptlet and show how it will look in the JSP
+        servlet.<br><br>
+        In JSP, java code can be written inside the jsp page using the scriptlet tag. Let's
+        see what are the scripting elements first.The scripting elements provides the ability to
+        insert java code inside the jsp. There are three types of scripting elements: scriptlet
+        tag, expression tag and declaration tag.<br>
+        Example of JSP scriptlet tag:-<br><br>
+    <h3>
+        <xmp>
+            <html>
+
+            <body>
+            <% out.print("welcome to jsp"); %>
+            </body>
+
+            </html>
+        </xmp>
+    </h3>
+
+
+
+    5. Give an example of a JSP declaration and show how it will look in the JSP
+    servlet.
+    The JSP declaration tag is used to declare fields and methods.The code written
+    inside the jsp declaration tag is placed outside the service() method of auto generated
+    servlet. So it doesn't get memory at each request. The syntax of the declaration tag is as
+    follows: <%! Field or method declaration %>
+    Example:
+    <h3>
+        <xmp>
+            <html>
+
+            <body>
+            <%! Int data=50; %>
+            </body>
+
+            </html>
+        </xmp>
+    </h3>
+
+    <h3>
+        <xmp>
+            <html>
+
+            <body>
+            <%=”value of the variable is:”+data%>
+            </body>
+
+            </html>
+        </xmp>
+    </h3>
+
+
+
+    6. Give an example of a JSP comment and show how it will look in the JSP
+    servlet.<br>
+     In order to generate comments that appear in the response output
+    stream to the requesting client, the HTML and XML comment syntax is
+    used, as follows:<br>
+    <!-- comments ... --><br>
+    These comments are treated as uninterpreted template text by the JSP
+    container. If the generated comment is to have dynamic data, this can be
+    obtained through an expression syntax, as in:<br>
+    <!-- comments <%= expression %> more comments ... --><br><br>
+    8. Give an example of a JSP expression and show how it will look in the JSP
+    servlet.<br><br>
+    Syntax of JSP expression: <% =statement%><br>
+    Example:-<br> welcome message<br>
+    <h3>
+        <xmp>
+            <html>
+
+            <body>
+            <%= "welcome to jsp" %>
+            </body>
+
+            </html>
+        </xmp>
+    </h3>
+
+    9. Give an example of a JSP directive and show how it will look in the JSP servlet.
+     Syntax of JSP directive <%@ directive attribute="value" %>
+    Example:-
+
+    <h3>
+        <xmp>
+            <html>
+
+            <body>
+            <%@ page contentType=application/msword %>
+            Today is: <%= new java.util.Date() %>
+            </body>
+
+            </html>
+        </xmp>
+    </h3>
+
+    10. Explain how an EL expression is evaluated.<br><br>
+    The Expression Language (EL) simplifies the accessibility of data stored in the Java
+    Bean component, and other objects like request, session, application etc. There are many
+    implicit objects, operators and reserve words in EL. Syntax of EL :- $ {expression}11. Explain how servlets
+    and JSPs use request dispatch to interact.<br>
+    Ans:- The RequestDispatcher interface provides the facility of dispatching the request to
+    another resource it may be html, servlet or jsp. This interface can also be used to include
+    the content of another resource also. It is one of the way of servlet collaboration.<br><br>
+    </p>
+</div>
+
+<div>
+
+    <h3>JSP Custom Tags Quiz</h3>
+    <p>
+        1. How do custom tags relate to JSTL?<br><br>
+        tag and separates the business logic from the JSP page.<br>
+        The JSTL core tag provide variable support, URL management, flow control, etc.<br>
+        The functions tags provide support for string manipulation and string length<br>
+        The Formatting tags provide support for message formatting, number and date
+        formatting, etc.<br>
+        The XML tags provide flow control, transformation, etc.<br>
+        The JSTL SQL tags provide SQL support.<br><br>
+        2. What is the role of the URI in the TLD and the taglib directive?<br>
+         We can use the custom URI, to tell the web container about the tld file. In such
+        case, we need to define the taglib element in the web.xml. The web container gets the
+        information about the tld file from the web.xml file for the specified URI.<br><br>
+        3. What is a tag handler class?<br><br>
+        Create the Tag handler class and perform action at the start or at the end
+        of the tag. Create the TagLibrary Descriptor (TLD) file and define tags Create the
+        JSP file that uses the Custom tag defined in the TLD file<br><br>
+        4. What is the role of attribute setters in a tag handler class?<br><br>
+        Attribute lets you configure getter and setter functions for each attribute.
+        These functions are invoked when the user calls Attribute's get and set methods,
+        and provide a way to modify the value returned or the value stored respectively.
+        You can also define a validator function for each attribute, which is used to
+        validate the final value before it gets stored. All these functions receive the value
+        and name of the attribute being set or retrieved, as shown in the example code
+        below. The name is not used in this example, but is provided to support use
+        cases where you may wish to share the same function between different
+        attributes<br><br>
+        6 . What is the role of the doTag() method in a tag handler class?<br><br>
+        the dotag() method is used to implement/override to code functionality of tag.<br>
+        And this is invoked when the end element of the tag encountered.<br><br>
+        7. What does the operation getJspContext().getOut(). write(“Hi Bob”) do when
+        called in a doTag() method?<br>Ans:- public class HelloAttributeTag extends SimpleTagSupport {
+        private String name;<br><br>
+        //the container calls back this setter to process attribute “name”
+        public void setName(String name)<br> {
+        this.name= name;<br>
+        }<br>
+        @Override<br>
+        public void doTag() throws JspException {<br>
+        JspWriter out= getJspContext.getOut();<br>
+        try {<br>
+        if(name!=null) {<br>
+        out.println(“<h3>Hello, “+name+”!</h3>”);<br>
+    } <br>
+    else {<br>
+    out.println( “<h3>Hello, everybody !</h3>”);<br>
+    } }<br>
+    catch(java.io.IOException ex) {<br>
+    throw new JspException(“Error in HelloAttributeTag”, exe);<br>
+    } }<br><br>
+    8. What does the operation getJspBody().invoke(null) do when called in a doTag()
+    method?<br><br>
+    When getJspBody().invoke(null) is called, it is the output resulting from the execution of the
+    tag body's JSP content that gets passed to the client, not the JSP code itself. Therefore,
+    the doTag method has no way of accessing the tag body output. All it can do is pass it along.<br><br></p>
+</div>
+
+</body>
+</html>
