@@ -1,0 +1,36 @@
+
+<!DOCTYPE html>
+<html>
+
+<script>
+    function calcTip() {
+        var totalElem = document.getElementById('total');
+        var total = 100000;
+        totalElem.innerHTML = '$' + total;
+    }
+</script>
+<head>
+    <title>Tip Calculator</title>
+
+</head>
+<body>
+<div>
+    <label><input id="subtotal" type="text" /> $ Subtotal</label>
+</div>
+
+<div>
+    <label><input id="tip" type="text" /> % Tip</label>
+</div>
+
+<div>
+    <button id="btn"  onclick="calcTip();">Calculate Tip</button>
+</div>
+
+<hr />
+
+<div>
+    <h2>Your total:</h2>
+    <p id="total">$0.00</p>
+</div>
+</body>
+</html>
