@@ -280,5 +280,123 @@
     the doTag method has no way of accessing the tag body output. All it can do is pass it along.<br><br></p>
 </div>
 
+
+
+<div>
+    <h3>Javascript Exercises</h3>
+    <p>
+        1. What is the difference between the following 2 statements?
+        setTimeout(booyah, 2000);
+        setTimeout(booyah(), 2000);<br><br>
+        The second one calls the function booyah immediately rather than wait 2000ms<br><br>
+        2.  What do the following 2 alerts display (answer without running the code)?
+        var myfunc = function(a, x) {
+        return a * x;
+        };
+        var x = myfunc(2, 3);
+        var y = myfunc;
+        alert(x);
+        alert(y(2,3)); <br><br>
+        it alert 6 <br><br>
+        3.  Write functions booyah1 and booyah2 so that in both cases below, an alert box comes up after 2 seconds that
+        says “BOOYAH!”
+        setTimeout(booyah1, 2000);
+        setTimeout(booyah2(), 2000);<br><br>
+        Write functions booyah1 and booyah2 so that in both cases below, an alert box comes up after 2 seconds that
+        says “BOOYAH!”
+        setTimeout(booyah1, 2000);
+        setTimeout(booyah2(), 2000); <br><br>
+        4.  What is "Unobtrusive Javascript"? What is the practical application of Unobtrusive Javascript (and the reasons
+        for using it)?<br><br>
+        Unobtrusive JavaScript is the way of writing JavaScript language in which we properly separate Document Content
+        and Script Content thus allowing us to make a clear distinction between them. This approach is useful in so many
+        ways as it makes our code less error prone, easy to update and to debug. <br><br>
+
+</div>
+
+<div>
+    <h3>Javascript Scope Exercises</h3>
+    <p>
+        1. Determine what this Javascript code will print out (without running it):
+        <br><br>
+        c(8,910) will print out 10889.
+        document.write(b) will print out 10.
+        Document.write(x) will print out 1. <br><br>
+        2.  What is the difference between a method and function? <br><br>
+        JavaScript methods are actions that can be performed on objects. A JavaScript method is a property containing a
+        function definition. Methods are functions stored as object properties.<br>
+        In JavaScript every function is an object. An object is a collection of key:value pairs. If a value is a primitive
+        (integer, string, boolean), or another object, the value is considered a property. If a value is a function,
+        it is called a 'method'.<br>
+        Within the scope of an object, a function is referred to as a method of that object. It is invoked from the object
+        namespace 'MyObj.theMethod()'. Since we said a function is an object, a function within a function is considered
+        a method of that function.<br><br>
+        3. What does 'this' refer to when used in a Java method?<br><br>
+        This keyword in java can be used inside the Method or constructor of Class. It(this) works as a reference to the
+        current Object whose Method or constructor is being invoked. This keyword can be used to refer to any member of
+        the current object from within an instance Method or a constructor.  <br><br>
+        4. What does 'this' refer to when used in a JavaScript method?<br><br>
+        This keyword in JavaScript method refers the object that own the method.
+        Example
+        var person = {
+        firstName : "John",
+        lastName  : "Doe",
+        id : 5566,
+        myFunction : function() {
+        return this;
+        }
+        };
+        In the example this refers the Person object <br><br>
+        5. What does 'this' refer to when used in a JavaScript constructor function?<br><br>
+        In a constructor function this does not have a value. It is a substitute for the new object. The value of this
+        will become the new object when a new object is created.<br><br>
+        6. Assume object x is the prototype for object y in Javascript. Object x has a method f( ) containing keyword 'this'.
+        When f is called by x.f( ), what does 'this' refer to?<br><br>
+        This refers to the prototype x.<br><br>
+        7. What is a free variable in JavaScript?<br><br>
+        A free variable in JavaScript is: a variable referred to by a function that is not one of its parameters or local
+        variables.<br><br>
+        8. Create an object that has properties with name = "fred" and major="music" and a property that is a function
+        that takes 2 numbers and returns the smallest of the two, or the square of the two if they are equal.<br><br>
+        function person(Fikir,music){
+        this.Name=Fikir;
+        this.Major=music;
+        this.smallest=function(x,y){
+        if(x<y){
+        return x;
+        }else if(y<x){
+        return y;
+        }else{
+        return x*x +" and "+ y*y;
+        }
+        }
+        }
+        var person1=new person("Fikir","music");
+        console.log("Name is :" + person1.Name );
+        console.log("Smallest Number is :"+person1.smallest(5,9));
+        console.log("The square out put is :"+person1.smallest(9,9));<br><br>
+        9. Write Javascript code for creating three Employee objects using the "new" keyword and a constructor function.
+        Employee objects have the following fields: name, salary, position.<br><br>
+        function Employee(name,salary,position){
+        this.firstName=name;
+        this.Salary=salary;
+        this.Position=position;
+        }
+
+        Employee.prototype.information= function(){
+        return this.firstName+", "+this.Salary+", "+ this.Position;
+        }
+
+        var employee1=new Employee("Fikir",6000,"Developer");
+        var employee2=new Employee("Mar",7000,"Manager");
+        var employee3=new Employee("Emnet",2600, "Secretary");
+
+        console.log("Employee 1: "+employee1.information());
+        console.log("Employee 2: "+employee2.information());
+        console.log("Employee 3: "+employee3.information());<br><br>
+        
+
+</div>
+
 </body>
 </html>
